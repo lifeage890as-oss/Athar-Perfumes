@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="أثر العطور - معرض سعودي للعطور الفاخرة واكتشاف أجمل الروائح والنوتات العطرية.">
+  <meta name="theme-color" content="#211b19">
+
+  <title>أثر العطور | ATHAR PERFUMES</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --dark: #211b19;
+      --brown: #49372f;
+      --gold: #c5a46d;
+      --cream: #f8f5ef;
+      --white: #fffdf9;
+      --muted: #8e8177;
+      --gold-light: #dfc99f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y proximity;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar {
+      background: var(--dark);
+      color: var(--gold);
+      text-align: center;
+      padding: 9px;
+      font-size: 13px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: var(--white);
+      border-bottom: 1px solid #e8dfd3;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      color: var(--brown);
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      direction: ltr;
+      text-align: right;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+    }
+
+    nav a {
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      padding: 80px 10%;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(25,18,15,.92), rgba(25,18,15,.28)),
+        url("https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1800&q=90")
+        center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid #c5a46d55;
+      border-radius: 50%;
+      left: -230px;
+      bottom: -220px;
+      box-shadow: 0 0 0 45px #c5a46d08, 0 0 0 90px #c5a46d08;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .badge {
+      display: inline-block;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 5px 18px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 7vw, 78px);
+      line-height: 1.4;
+      margin-bottom: 15px;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: #eee4d8;
+      font-size: 17px;
+      max-width: 550px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 12px 30px;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .button:hover {
+      background: white;
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 85px 8%;
+      min-height: 70vh;
+      scroll-snap-align: start;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading small {
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .section-heading h2 {
+      color: var(--brown);
+      font-size: 35px;
+      margin-top: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .work-card {
+      background: var(--white);
+      overflow: hidden;
+      transition: .4s;
+      border: 1px solid #eee6db;
+    }
+
+    .work-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px #49372f18;
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 25px;
+    }
+
+    .card-body h3 {
+      color: var(--brown);
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .result {
+      color: #5d5148;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .notes {
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid #eee6db;
+      padding-top: 12px;
+    }
+
+    .about {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 35px;
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .about p {
+      max-width: 750px;
+      margin: auto;
+      color: #e0d6cb;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .feature {
+      padding: 25px;
+      border: 1px solid #ffffff25;
+    }
+
+    .feature span {
+      font-size: 35px;
+      color: var(--gold);
+    }
+
+    .feature h3 {
+      margin: 10px 0;
+    }
+
+    .contact {
+      background: #eee8df;
+    }
+
+    .contact-box {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      background: var(--white);
+      padding: 45px 25px;
+      border: 1px solid #e4d8c9;
+    }
+
+    .contact-box h2 {
+      color: var(--brown);
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .contact-info {
+      margin: 12px 0;
+      direction: ltr;
+      font-family: Arial, sans-serif;
+      color: var(--brown);
+    }
+
+    .contact-button {
+      display: inline-block;
+      background: var(--brown);
+      color: white;
+      padding: 11px 25px;
+      margin-top: 15px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer h3 {
+      color: var(--gold);
+      font-size: 23px;
+    }
+
+    footer p {
+      color: #c9bdb1;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .copyright {
+      border-top: 1px solid #ffffff20;
+      margin-top: 20px;
+      padding-top: 15px;
+      font-size: 12px;
+      color: #a99a8c;
+    }
+
+    .slide-kicker {
+      display: block;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      letter-spacing: 5px;
+      font-size: 12px;
+      direction: ltr;
+      margin-bottom: 12px;
+    }
+
+    .slide-intro {
+      background:
+        radial-gradient(circle at 80% 20%, #c5a46d1f, transparent 28%),
+        var(--cream);
+      display: grid;
+      align-items: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .stat {
+      min-height: 180px;
+      padding: 28px 20px;
+      background: var(--white);
+      border: 1px solid #e7dccb;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: .35s;
+    }
+
+    .stat:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+    }
+
+    .stat strong {
+      color: var(--gold);
+      font-size: 45px;
+      line-height: 1.15;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .notes-section {
+      background: var(--dark);
+      color: white;
+    }
+
+    .notes-section .section-heading h2,
+    .notes-section .section-heading p {
+      color: white;
+    }
+
+    .notes-pyramid {
+      max-width: 820px;
+      margin: 25px auto 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .note-layer {
+      min-height: 105px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid #c5a46d55;
+      background: linear-gradient(135deg, #49372f, #302620);
+      clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+    }
+
+    .note-layer:nth-child(1) { width: 48%; }
+    .note-layer:nth-child(2) { width: 70%; }
+    .note-layer:nth-child(3) { width: 92%; }
+
+    .note-layer h3 {
+      color: var(--gold-light);
+      margin-bottom: 2px;
+    }
+
+    .note-layer p {
+      color: #d8cdbf;
+      font-size: 13px;
+    }
+
+    .journey {
+      background: #eee8df;
+    }
+
+    .timeline {
+      max-width: 980px;
+      margin: 45px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      background: var(--gold);
+      right: 12.5%;
+      left: 12.5%;
+      top: 28px;
+    }
+
+    .timeline-step {
+      position: relative;
+      text-align: center;
+      padding: 0 14px;
+    }
+
+    .timeline-step .number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      background: var(--dark);
+      color: var(--gold);
+      border: 5px solid #eee8df;
+      outline: 1px solid var(--gold);
+      display: grid;
+      place-items: center;
+      font-family: Arial, sans-serif;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-step h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-step p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .discover {
+      min-height: 80vh;
+      background:
+        linear-gradient(90deg, rgba(33,27,25,.94), rgba(33,27,25,.55)),
+        url("https://images.unsplash.com/photo-1619994403073-2cec844b8eaa?auto=format&fit=crop&w=1800&q=90") center/cover;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .discover-content {
+      max-width: 620px;
+      margin-right: 4%;
+    }
+
+    .discover h2 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.45;
+      margin: 10px 0 18px;
+    }
+
+    .discover p {
+      color: #e8ded2;
+      max-width: 540px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .works-grid,
+      .features,
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .timeline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px 0;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .works-grid,
+      .features,
+      .stats-grid,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 480px;
+        padding: 55px 7%;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+
+      .section-heading h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    ✦ أثر العطور — اكتشف عطرك واترك أثراً لا يُنسى ✦
+  </div>
+
+  <header>
+    <a href="#top" class="logo">
+      أثر العطور
+      <span>ATHAR PERFUMES</span>
+    </a>
+
+    <nav>
+      <a href="#top">الرئيسية</a>
+      <a href="#works">العطور</a>
+      <a href="#notes">النوتات</a>
+      <a href="#journey">رحلتنا</a>
+      <a href="#about">من نحن</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="top">
+      <div class="hero-content">
+        <span class="badge">معرض عطور سعودي فاخر</span>
+
+        <h1>
+          عطرك يحكي حكايتك،
+          <span>وأثرك لا يُنسى.</span>
+        </h1>
+
+        <p>
+          اكتشف عالماً من الروائح الفاخرة، وتعرّف على طبقات العطور
+          ونوتاتها، واختر الرائحة التي تعبّر عن شخصيتك وتترك أثراً جميلاً.
+        </p>
+
+        <a href="#works" class="button">اكتشف العطور ←</a>
+      </div>
+    </section>
+
+    <section id="works">
+      <div class="section-heading">
+        <small>OUR COLLECTION</small>
+        <h2>أبرز الأعمال العطرية</h2>
+        <p>ثلاث تجارب عطرية تجمع بين الأصالة والفخامة.</p>
+      </div>
+
+      <div class="works-grid">
+
+        <article class="work-card">
+          <img
+            src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=85"
+            alt="عطر عنبر الليل"
+            loading="lazy"
+          >
+
+          <div class="card-body">
+            <h3>عنبر الليل</h3>
+            <p class="result">
+              النتيجة: عطر دافئ بطابع شرقي أنيق، مناسب للأمسيات والمناسبات الخاصة.
+            </p>
+            <p class="notes">
+              النوتات: البرغموت، العنبر، الفانيليا، وخشب الصندل.
+            </p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <img
+            src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=85"
+            alt="عطر ندى الياسمين"
+            loading="lazy"
+          >
+
+          <div class="card-body">
+            <h3>ندى الياسمين</h3>
+            <p class="result">
+              النتيجة: رائحة منعشة وناعمة تناسب الصباح والعمل والاستخدام اليومي.
+            </p>
+            <p class="notes">
+              النوتات: الليمون، الياسمين، الشاي الأبيض، والمسك.
+            </p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <img
+            src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=85"
+            alt="عطر عود السحاب"
+            loading="lazy"
+          >
+
+          <div class="card-body">
+            <h3>عود السحاب</h3>
+            <p class="result">
+              النتيجة: طابع شرقي فاخر يجمع بين عمق العود ونعومة البخور.
+            </p>
+            <p class="notes">
+              النوتات: الهيل، العود، اللبان، ونجيل الهند.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="slide-intro" id="numbers">
+      <div>
+        <div class="section-heading">
+          <span class="slide-kicker">THE ATHAR EXPERIENCE</span>
+          <h2>عالم من التفاصيل العطرية</h2>
+          <p>كل عطر تجربة مكتملة تبدأ بالنوتة الأولى وتنتهي بالأثر الذي يبقى.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat"><strong>٣</strong><span>طبقات عطرية متناسقة</span></div>
+          <div class="stat"><strong>١٢+</strong><span>مكوناً فاخراً مختاراً</span></div>
+          <div class="stat"><strong>٨</strong><span>ساعات مخصصة للرحلة</span></div>
+          <div class="stat"><strong>١</strong><span>أثر لا يُنسى بك</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="notes-section" id="notes">
+      <div class="section-heading">
+        <span class="slide-kicker">SCENT STRUCTURE</span>
+        <h2>إلى أين يأخذك العطر؟</h2>
+        <p>تتطور الرائحة عبر ثلاث طبقات، تماماً كما تتطور الحكاية.</p>
+      </div>
+
+      <div class="notes-pyramid">
+        <article class="note-layer">
+          <div>
+            <h3>النوتات العليا</h3>
+            <p>البرغموت · الليمون · الهيل — الانطباع الأول.</p>
+          </div>
+        </article>
+        <article class="note-layer">
+          <div>
+            <h3>النوتات القلبية</h3>
+            <p>الياسمين · وردة الدمشق · اللبان — شخصية العطر.</p>
+          </div>
+        </article>
+        <article class="note-layer">
+          <div>
+            <h3>النوتات الأساسية</h3>
+            <p>العود · العنبر · المسك · الصندل — أثر يدوم.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="journey" id="journey">
+      <div class="section-heading">
+        <span class="slide-kicker">YOUR JOURNEY</span>
+        <h2>رحلتك إلى عطرك المناسب</h2>
+        <p>من أول لحظة إلى التوقيع العطري الذي يشبهك.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-step">
+          <span class="number">01</span>
+          <h3>اكتشف ذوقك</h3>
+          <p>اختر الأجواء والروائح التي تشعر بها.</p>
+        </article>
+        <article class="timeline-step">
+          <span class="number">02</span>
+          <h3>جرّب النوتات</h3>
+          <p>تعرف على الطبقات العليا والقلبية والأساسية.</p>
+        </article>
+        <article class="timeline-step">
+          <span class="number">03</span>
+          <h3>اختر المناسبة</h3>
+          <p>للنهار، والسهرات، والعمل، والاحتفالات.</p>
+        </article>
+        <article class="timeline-step">
+          <span class="number">04</span>
+          <h3>اترك أثراً</h3>
+          <p>رتل حضورك برائحة بقت توقيعاً شخصياً لك.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="discover" id="discover">
+      <div class="discover-content">
+        <span class="slide-kicker">DISCOVER YOUR SIGNATURE</span>
+        <h2>العطر المناسب ليس مجرد رائحة… إنه حضور.</h2>
+        <p>دعنا نساعدك على اكتشاف التوازن الذي يعبر عن شخصيتك ويصنع حضوراً مميزاً.</p>
+        <a href="#contact" class="button">ابدأ رحلتك ←</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>حكايتنا مع العطور</h2>
+
+      <p>
+        في أثر العطور نؤمن أن لكل رائحة شخصية، ولكل عطر ذكرى.
+        نقدم لك مساحة لاكتشاف الروائح والتعرّف على مكوناتها
+        واختيار ما يناسب ذوقك ومناسبتك.
+      </p>
+
+      <div class="features">
+
+        <div class="feature">
+          <span>✧</span>
+          <h3>عطور مختارة</h3>
+          <p>تجارب عطرية متنوعة تناسب مختلف الأذواق.</p>
+        </div>
+
+        <div class="feature">
+          <span>♧</span>
+          <h3>معرفة النوتات</h3>
+          <p>شرح مبسط لمكونات العطور وطبقاتها.</p>
+        </div>
+
+        <div class="feature">
+          <span>♡</span>
+          <h3>ذوقك أولاً</h3>
+          <p>نساعدك على اكتشاف الرائحة التي تشبهك.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-box">
+
+        <h2>تواصل مع أثر العطور</h2>
+
+        <p>
+          يسعدنا استقبال استفساراتكم حول العطور والنوتات والترشيحات.
+        </p>
+
+        <div class="contact-info">
+          المملكة العربية السعودية
+        </div>
+
+        <div class="contact-info">
+          +966 55 738 2941
+        </div>
+
+        <div class="contact-info">
+          info@atharperfumes.example
+        </div>
+
+        <a class="contact-button" href="https://wa.me/966557382941">
+          تواصل عبر واتساب
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h3>أثر العطور</h3>
+    <p>ATHAR PERFUMES</p>
+    <p>المملكة العربية السعودية</p>
+
+    <div class="copyright">
+      © 2026 أثر العطور — جميع الحقوق محفوظة
+    </div>
+  </footer>
+
+</body>
+</html>
